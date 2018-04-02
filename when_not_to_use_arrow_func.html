@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        button { font-size: 100px; }
+        .on { background: plum }
+    </style>
+</head>
+<body>
+
+<button id="pushy">---</button>
+
+<script>
+
+    // When you really need 'this'
+    const button = document.querySelector("#pushy");
+    //button.addEventListener("click", () => { // 'this' isn't rebound so this won't work
+    button.addEventListener("click", function() { // use old school function
+        console.log(this);
+        this.classList.toggle("on");
+    });
+
+    // When you need a method to bind to an object
+    const person = {
+        points: 23,
+        //score: () => { // 'this' will be bound to the window here, not the object so the points won't increment
+        score: function() { // Use old school function (or the new ES6 shorthand score() { } )
+            this.points++;
+        }
+    }
+
+    // When you need to add  a prototype method
+    class Car {
+        constructor(make, color)
+        {
+            this.make = make;
+            this.color = color;
+        }
+    }
+
+    const bmw = new Car("bmw", "blue");
+    const vw = new Car("Volkswagon", "white");
+
+    //Car.prototype.summarize = () => { // "this" won't be in the context of the object
+    Car.prototype.summarize = function() { // use old school function
+        return `This car is a ${this.make} in the color ${this.color}`;
+    }
+
+
+    // When you need access to arguments object
+    //const orderChildren = () => { // Won't have access to the built in arguments var here
+    const orderChildren = function() { // use old school function
+        const children = Array.from(arguments);
+        return children.map((child, i) => {
+            return `${child} was child #${i + 1}`;
+        });
+        console.log(arguments);
+    }
+
+</script>
+
+</body>
+</html>

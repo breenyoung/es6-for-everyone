@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //========================================================
+    // Basic
+    const name = "Snickers";
+    const age = 2;
+    const sentence = `my dog ${name} is ${age * 7} years old`;
+
+    //console.log(sentence);
+    //========================================================
+
+
+
+    //========================================================
+    // Template strings
+    const person = {
+        name: "Breen",
+        job: "Dev",
+        city: "HRM",
+        bio: "My bio is here"
+    };
+
+    const markup = `
+        <div class="person">
+            <h2>
+                ${person.name}
+                <span class="job">${person.job}</span>
+            </h2>
+            <p class="location">${person.city}</p>
+            <p class="bio">${person.bio}</p>
+        </div>
+    `;
+
+    //console.log(markup);
+    //document.body.innerHTML = markup;
+    //========================================================
+
+    //========================================================
+    // NEsted template strings
+    const pets = [
+        {name: 'Winnie', age: 2},
+        {name: 'Onyx', age : 4}
+    ];
+
+    const dogmarkup = `
+        <ul class="pets">
+            ${pets.map(pet => `<li>${pet.name} is ${pet.age} is years old</li>`).join("")}
+        </ul>
+
+    `;
+    //========================================================
+
+
+    //========================================================
+    // Logic in template
+    const song = {
+        name: "Dying to live",
+        artist: "Tupac",
+        featuring: "Biggie"
+    };
+
+    const songmarkup = `
+        <div class="song">
+            <p>
+                ${song.name} - ${song.artist}
+                ${song.featuring ? `(Featuring ${song.featuring})` : ""}
+            </p>
+        </div>
+    `;
+
+    //========================================================
+
+
+    //========================================================
+    // Offloading rendering to a method
+
+    const beer = {
+        name: "Keiths",
+        brewery: "Oland",
+        keywords: ["atlantic", "classic", "cloudy"]
+    };
+
+    function renderKeywords(keywords) {
+        return `<ul>${keywords.map(kw => `<li>${kw}</li>`).join("")}</ul>`;
+    }
+
+    const beermarkup = `
+        <div>
+            <h2>${beer.name}</h2>
+            <p>${beer.brewery}</p>
+            ${renderKeywords(beer.keywords)}
+        </div>
+
+    `;
+
+
+    //========================================================
+
+
+</script>
+</body>
+</html>

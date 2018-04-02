@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .hl { background: yellow;}
+    </style>
+</head>
+<body>
+<script>
+
+    // tagged functions give you full control of how the template interpolation happens
+
+    function highlight(strings, ...values) // Rest operator ...
+    {
+        // strings contains the string pieces broken up around variable boundaries ['My dog', 'is', 'years old']
+
+        let str = "";
+        strings.forEach((string, idx) => {
+            str += `${string} <span class="hl">${values[idx] || ""}</span>`;
+        });
+
+        return str;
+    }
+
+    const name = "winnie";
+    const age = 10;
+    const sentence = highlight`My dog ${name} is ${age} years old`; // prefix function name
+
+    document.body.innerHTML = sentence;
+
+</script>
+</body>
+</html>
