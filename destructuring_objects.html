@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Simple
+    const person = {
+        first: "John",
+        last: "Smith",
+        country: "Africa",
+        city: "nowhere",
+        twitter: "@btest"
+    };
+
+    //const {first, last, twitter} = person;
+
+
+    // Deep nesting
+    const btest = {
+        first: 'John',
+        last: 'Smith',
+        links: {
+            social: {
+                twitter: 'https://twitter.com/btest',
+                facebook: 'https://facebook.com/btest.developer',
+            },
+            web: {
+                blog: 'https://btest.com'
+            }
+        }
+    };
+
+    //const { twitter, facebook } = btest.links.social;
+
+    // Use your own var names
+    const { twitter:tweet, facebook:fb} = btest.links.social;
+
+    // Set defaults
+    const settings = { width: 300, color: "black"};
+    //const { width = 100, height = 100, color = "blue", fontSize = 25 } = settings; // Set defaults for vars that arent there or fallback defs
+
+
+    // Above concepts all in one
+    const { w: width = 400, h: height = 500 } = { w: 800 };
+
+
+    // Swapping vars using de-structure
+    let inRing = "Hogan";
+    let onSide = "Rock";
+
+    // Old way
+    /*    var tmp = inRing;
+        inRing = onSide;
+        onSide = tmp;*/
+
+    // use destructure to swap them
+    console.log(inRing, onSide);
+    [inRing, onSide] = [onSide, inRing];
+    console.log(inRing, onSide);
+
+
+
+    // Destructuring Functions - Multiple returns
+    function convertCurrency(amount)
+    {
+        const converted = {
+            USD: amount * 0.76,
+            GPB: amount * 0.53,
+            AUD: amount * 1.01,
+            MEX: amount * 13.30
+        };
+        return converted;
+    }
+
+    const {USD, GPB, AUD, MEX} = convertCurrency(100); // Pseudo multiple var return from a function
+    console.log(USD, GPB, AUD, MEX);
+
+
+
+
+    // Destructuring Functions - named defaults
+
+    //function tipCalc(total, tip = 0.15, tax = 0.13) // Old, have to have exact order, pass in undefined to fill holes
+    function tipCalc({total, tip = 0.15, tax = 0.13}) // Now order independent, can be passed in any order, ommisions allowed without undefined filler
+    {
+        return total + (tip * total) + (tax * total);
+    }
+
+    //console.log(tipCalc(200, 0.20, undefined)); // OLD
+    console.log(tipCalc({total: 200, tip: 0.20, tax: 0.13})); // now you can leave off things without undefined filler, in any order and they're named
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const details = ['John Doe', 123, 'test@test.com'];
+    const [name, id, email] = details;
+    console.log(name, id, email);
+
+
+    const data = 'basketball,Sports,90210,23';
+    const [itemName, category, sku, inventory] = data.split(",");
+    console.log(itemName, category, sku, inventory);
+
+    const team = ['Wes', 'Harry', 'Sarah', 'Tom', 'John'];
+
+    const [captain, assistant, ...players] = team; // ... is Rest operator, grabs the remaining
+
+
+
+
+</script>
+
+</body>
+</html>

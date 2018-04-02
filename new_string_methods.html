@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const course = "RFB2";
+    const flightnum = "20-AC2018-jz";
+    const accNum = "825456465RT0001";
+
+
+    const make = "BMW";
+    const model = "x5";
+    const color = "royal blue";
+
+
+    // .startsWith() (case sensitive, use a regex if you need case sensitivity)
+    console.log(course.startsWith("RFB")); // true
+    console.log(course.startsWith("rfb")); // false
+
+    console.log(flightnum.startsWith("AC", 3)); // true, 2nd arg lets you skip forward X characters
+
+    // .endsWith()
+    console.log(flightnum.endsWith("jz")); // true
+    console.log(accNum.endsWith("RT", 11)); // true, 2nd arg lets you skip forward X characters
+
+    // .includes() (case sensitive, use a regex if you need case sensitivity)
+    console.log(flightnum.includes("AC")); // true
+
+    // .repeat()
+
+    function leftPad(str, len = 20) {
+        return ` ${" ".repeat(len - str.length)}${str}`;
+    }
+
+    console.log(leftPad(make));
+    console.log(leftPad(model));
+    console.log(leftPad(color));
+
+</script>
+
+</body>
+</html>
