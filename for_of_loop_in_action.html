@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p>ptag 1</p>
+    <p>ptag 2</p>
+    <p>ptag 3</p>
+    <p>ptag 4</p>
+    <p>ptag 5</p>
+
+    <script>
+
+/*
+        const cuts = ['chuck', 'brisket', 'shank', 'rib'];
+
+        for (const [idx,cut] of cuts.entries()) // De-structure array into 2 vars
+        {
+            console.log(`${cut} is the ${idx + 1} item`);
+        }
+*/
+
+        // Used to iterate args array-like obj
+/*
+        function addNumbers()
+        {
+            console.log(arguments);
+            let total = 0;
+            for (const num of arguments)
+            {
+                total += num;
+            }
+            console.log(total);
+        }
+
+        addNumbers(1,5,666,7,4,33);
+*/
+
+
+    // iterate strings
+    const name = "John Smith";
+    for (const char of name)
+    {
+        console.log(char);
+    }
+
+    // Iterate elements
+    const ps = document.querySelectorAll("p");
+    for (const p of ps)
+    {
+        console.log(p);
+
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        const apple = {
+            color: "red",
+            size: "small",
+            weight: 50,
+            sugar: 10
+        };
+
+
+        //for (const prop of Object.keys(apple)) // .entries() coming to ES2017, for now use for in
+        for (const prop in apple)
+        {
+            const val = apple[prop];
+            console.log(`Property:${prop}, value:${val}`);
+        }
+
+    </script>
+</body>
+</html>
