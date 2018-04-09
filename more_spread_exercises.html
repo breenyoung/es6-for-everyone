@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="people">
+        <p>John</p>
+        <p>Jane</p>
+        <p>Joe</p>
+    </div>
+
+    <script>
+
+        // Spread into an array (from a nodelist in this case)
+        const ppl = [...document.querySelectorAll(".people p")];
+
+        // More readable this way tho
+        //const ppl = Array.from(document.querySelectorAll(".people p"));
+
+        const deepDish = {
+            pizzaName: "Deep dish",
+            size: "med",
+            ingredients: ["cheese", "dough", "sausage"]
+
+        };
+
+        // Spread (copy) one array into another
+        const shopList = ['milk', 'flour', ...deepDish.ingredients];
+
+
+        // Removing things from an array
+        const comments = [
+            { id: 444432, text: "my comment"},
+            { id: 145673, text: "dsdsd"},
+            { id: 907653, text: "apples"},
+            { id: 561245, text: "carrot"}
+        ];
+
+        const idToFind = 907653;
+        const commentIdx = comments.findIndex(comment => comment.id === idToFind);
+
+        // Won't work, will give you an array of arrays (2 of them, once for each slice() call)
+        //const newComments = [comments.slice(0, commentIdx), comments.slice(commentIdx + 1)];
+
+        // Instead spread as you slice
+        const newComments = [...comments.slice(0, commentIdx), ...comments.slice(commentIdx + 1)];
+
+
+        // Spread into a function (push() in this case)
+        const inventors = ["Einstien", "Newton", "Galileo"];
+        const modernInventors = ["Musk", "Jobs"]
+
+        // Won't work, adds a new array of 2 elems the end of inventors, not each value of modernInventors
+        //inventors.push(modernInventors);
+
+        // Works as expected
+        inventors.push(...modernInventors);
+
+
+        // Another example of spreading into a function
+        const name = ['John', 'Doe'];
+        function sayHi(first, last)
+        {
+            alert(`Hi ${first} ${last}`);
+        }
+
+        sayHi(...name);
+
+
+    </script>
+</body>
+</html>

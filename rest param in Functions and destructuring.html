@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        // ... can also mean the rest param which is the opposite of spread
+        // takes multiple things and puts them into a single array
+        // used in functions and destructuring
+
+
+        // rest into functions
+        // after rate arg, unknown amt of args
+        function convertCurrency(rate, ...amounts)
+        {
+            console.log(rate, amounts);
+            return amounts.map(amount => amount * rate);
+
+        }
+        const amounts = convertCurrency(1.54, 10, 23, 54);
+        console.log(amounts);
+
+        // rest param for destructuring
+        const runner = ['John doe', 22343, 5.5, 3, 6.5, 33];
+
+        // Destructure array into vars using rest param
+        const [name, id, ...runs] = runner;
+
+
+
+
+    </script>
+
+
+</body>
+</html>
