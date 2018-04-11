@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        const first = "john";
+        const last = "smith";
+        const age = 44;
+        const blah = "worker";
+
+        // If prop name and var name are the same you can use shorthand and just specify the prop name
+        const person = {
+            first,
+            last,
+            age,
+            job: blah // Can also mix n match with the old way if you need the prop name has to be diff
+        };
+
+        // Method definitions in an object.  Shorthand remove the colon and word function
+        const modal = {
+            create() {}, // New way
+            open(content) {}, // New way
+            close: function() {} // Old way
+        };
+
+        // Computed property names
+        function invertColor(color)
+        {
+            return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+        }
+
+        const key = "pocketColor";
+        const val = "#ffc600";
+        const shirt = {
+            [key]: val,
+            [`${key}Opposite`]: invertColor(val) // Dynamically set property, generating the value via a function
+        };
+
+        // Computed properties being set using the .shift() array method
+        const keys = ['size', 'color', 'weight'];
+        const values = ['med', 'red', 100];
+        const someOtherShirt = {
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift()
+        };
+
+
+
+
+    </script>
+</body>
+</html>
