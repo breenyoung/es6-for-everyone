@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        // new primative - Symbol
+        // Used as a unique identifier
+        // helps avoid name collisions
+
+
+        const john = Symbol('john'); // arg is just a descriptor for the symbol
+
+        // Symbols cannot be enumerated
+        const classRoom = {
+            [Symbol('Mark')]:{ grade: 50, gender: "M"},
+            [Symbol('Olivia')]:{ grade: 80, gender: "F"},
+            [Symbol('Olivia')]:{ grade: 90, gender: "F"}
+        }
+
+        // Use getOwnPropertySymbols to get a list of the keys
+        // then .map over them to get each bit of data using the indexer style accessor
+        const syms = Object.getOwnPropertySymbols(classRoom);
+        const data = syms.map(sym => classRoom[sym]);
+        console.log(data);
+
+
+    </script>
+</body>
+</html>
